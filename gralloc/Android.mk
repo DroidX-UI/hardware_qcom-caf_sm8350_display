@@ -24,6 +24,10 @@ LOCAL_ADDITIONAL_DEPENDENCIES := $(common_deps)
 LOCAL_SRC_FILES               := gr_device_impl.cpp
 include $(BUILD_SHARED_LIBRARY)
 
+ifeq ($(TARGET_NEEDS_RAW10_BUFFER_FIX),true)
+LOCAL_CFLAGS                  += -DRAW10_BUFFER_FIX
+endif
+
 #libgralloccore
 include $(CLEAR_VARS)
 LOCAL_MODULE                  := libgralloccore
